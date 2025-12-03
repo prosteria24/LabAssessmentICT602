@@ -1,0 +1,104 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ic_launcher"
+        android:contentDescription="@string/app_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vehicle_loan_calculator"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Vehicle Price (RM)">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"/>
+</com.google.android.material.textfield.TextInputLayout>
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Down Payment (RM)">
+<com.google.android.material.textfield.TextInputEditText
+    android:id="@+id/input_down_payment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Loan Period (Years)">
+<com.google.android.material.textfield.TextInputEditText
+    android:id="@+id/input_loan_period"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:inputType="number"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Interest Rate (%) per year">
+<com.google.android.material.textfield.TextInputEditText
+    android:id="@+id/input_interest_rate"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:inputType="numberDecimal"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+<Button
+android:id="@+id/button_calculate"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Calculate Loan"
+android:layout_marginTop="20dp"/>
+
+<TextView
+android:id="@+id/output_loan_amount"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Loan Amount: RM 0.00"
+android:layout_marginTop="16dp"
+android:textSize="16sp"/>
+
+<TextView
+android:id="@+id/output_total_interest"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Total Interest: RM 0.00"
+android:textSize="16sp"/>
+
+<TextView
+android:id="@+id/output_total_payment"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Total Payment: RM 0.00"
+android:textSize="16sp"/>
+
+<TextView
+android:id="@+id/output_monthly_payment"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Monthly Payment: RM 0.00"
+android:textSize="18sp"
+android:textStyle="bold"
+android:layout_marginTop="8dp"/>
+
+    </LinearLayout>

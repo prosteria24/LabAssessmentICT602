@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Lab Assessment</string>
+    <string name="app_logo">App Logo</string>
+    <string name="loan_amount_rm">Loan Amount: RM %s</string>
+    <string name="total_interest_rm">Total Interest: RM %s</string>
+    <string name="total_payment_rm">Total Payment: RM %s</string>
+    <string name="monthly_payment_rm">Monthly Payment: RM %s</string>
+    <string name="vehicle_loan_calculator">Vehicle Loan Calculator</string>
+</resources>
