@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        // Initialize Views
         inputPrice = findViewById(R.id.input_price);
         inputDownPayment = findViewById(R.id.input_down_payment);
         inputLoanPeriod = findViewById(R.id.input_loan_period);
@@ -39,9 +39,11 @@ public class MainActivity extends AppCompatActivity {
         outputTotalPayment = findViewById(R.id.output_total_payment);
         outputMonthlyPayment = findViewById(R.id.output_monthly_payment);
         Button calculateButton = findViewById(R.id.button_calculate);
+        Button resetButton = findViewById(R.id.button_reset);
 
-
+        // Set Click Listeners
         calculateButton.setOnClickListener(v -> calculateLoan());
+        resetButton.setOnClickListener(v -> resetFields());
     }
 
     private void calculateLoan() {
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         String periodStr = inputLoanPeriod.getText().toString();
         String interestRateStr = inputInterestRate.getText().toString();
 
-
+        // Input Validation
         if (priceStr.isEmpty() || downPaymentStr.isEmpty() || periodStr.isEmpty() || interestRateStr.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
             return;
@@ -62,19 +64,19 @@ public class MainActivity extends AppCompatActivity {
             double loanPeriodYears = Double.parseDouble(periodStr);
             double interestRate = Double.parseDouble(interestRateStr);
 
-            // Calculate Loan Amount
+            // Step 1: Calculate Loan Amount
             double loanAmount = vehiclePrice - downPayment;
 
-            // Calculate Total Interest
+            // Step 2: Calculate Total Interest
             double totalInterest = loanAmount * (interestRate / 100.0) * loanPeriodYears;
 
-            // Calculate Total Payment
+            // Step 3: Calculate Total Payment
             double totalPayment = loanAmount + totalInterest;
 
-            //  Calculate Monthly Payment
+            // Step 4: Calculate Monthly Payment
             double monthlyPayment = totalPayment / (loanPeriodYears * 12.0);
 
-
+            // Display Results using string resources
             outputLoanAmount.setText(getString(R.string.loan_amount_rm, df.format(loanAmount)));
             outputTotalInterest.setText(getString(R.string.total_interest_rm, df.format(totalInterest)));
             outputTotalPayment.setText(getString(R.string.total_payment_rm, df.format(totalPayment)));
@@ -85,6 +87,17 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(this, "An unexpected error occurred: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void resetFields() {
+        inputPrice.setText("");
+        inputDownPayment.setText("");
+        inputLoanPeriod.setText("");
+        inputInterestRate.setText("");
+        outputLoanAmount.setText("Loan Amount: RM 0.00");
+        outputTotalInterest.setText("Total Interest: RM 0.00");
+        outputTotalPayment.setText("Total Payment: RM 0.00");
+        outputMonthlyPayment.setText("Monthly Payment: RM 0.00");
     }
 
     @Override
